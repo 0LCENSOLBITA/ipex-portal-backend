@@ -12,7 +12,8 @@ const app = express();
 app.use(cors({
 origin:[
 "http://localhost:8080",
-"https://lovable.dev"
+"https://lovable.dev",
+"https://ipex-project.olcengsolbita.workers.dev"
 ]
 }));
 
