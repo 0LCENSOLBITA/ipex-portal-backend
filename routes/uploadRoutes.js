@@ -1,13 +1,19 @@
 const express = require("express");
 
-const router = express.Router();
+const router =
+  express.Router();
 
 const upload =
-  require("../middleware/upload");
+  require(
+    "../middleware/upload"
+  );
 
 router.post(
   "/",
-  upload.array("files"),
+
+  upload.array(
+    "files"
+  ),
 
   (req, res) => {
 
@@ -15,16 +21,22 @@ router.post(
       req.files || [];
 
     const formatted =
-      files.map((f) => ({
-        name:
-          f.originalname,
+      files.map(
+        (f) => ({
 
-        filename:
-          f.filename,
+          filename:
+            f.filename,
 
-        path:
-          f.path,
-      }));
+          originalname:
+            f.originalname,
+
+          description:
+            "",
+
+          path:
+            `/uploads/${f.filename}`,
+        })
+      );
 
     res.json(
       formatted
@@ -32,4 +44,5 @@ router.post(
   }
 );
 
-module.exports = router;
+module.exports =
+  router;
